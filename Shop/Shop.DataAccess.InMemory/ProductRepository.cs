@@ -12,16 +12,13 @@ namespace Shop.DataAccess.InMemory
     public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
-        List<Product> products = new List<Product>();
+        List<Product> products;
 
         public ProductRepository()
         {
-            products = cache["roducts"] as List<Product>;
-            if (products==null)
-            {
+            products = cache["products"] as List<Product>;
+            if (products == null)
                 products = new List<Product>();
-            }
-            
         }
 
         public void Commit()
